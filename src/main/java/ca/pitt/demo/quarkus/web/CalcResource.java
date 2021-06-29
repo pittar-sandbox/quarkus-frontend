@@ -21,6 +21,7 @@ public class CalcResource {
     public String calc(Calculation calculation) {
 
         Numbers numbers = new Numbers(Double.valueOf(calculation.getX()), Double.valueOf(calculation.getY()));
+        channelService.postCalculation(calculation.getOp(), numbers);
 
         return "Done.";
     }
