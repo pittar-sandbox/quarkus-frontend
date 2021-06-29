@@ -179,9 +179,17 @@ $(function(){
         calc.y = $("#y").val();
         calc.op = $('input[name="operation"]:checked').val();
 
-        $.post( "/calculate", function( calc ) {
-            console.log("Post success: " + JSON.stringify(calc));
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/calculate",
+            data: JSON.stringify(calc),
+            dataType: "json"
         });
+
+        // $.post( "/calculate", function( calc ) {
+        //     console.log("Post success: " + JSON.stringify(calc));
+        // });
     });
 
 });
