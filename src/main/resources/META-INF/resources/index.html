@@ -109,34 +109,31 @@
 <body>
 
 <div class="banner lead">
-    Your new Cloud-Native application is ready!
+    OpenShift Serverless and Quarkus!
 </div>
 
 <div class="container">
     <div class="left-column">
-        <p class="lead"> Congratulations, you have created a new Quarkus cloud application.</p>
+        <p class="lead">Serverless Math.</p>
 
-        <h2>What is this page?</h2>
+        <h2>Try some calculations</h2>
+
+        <p>
+            <div class="row">
+                <label for="x">X: </label>
+                <input type="text" id="x" name="x" /><br />
+                <label for="y">Y: </label>
+                <input type="text" id="y" name="y"/><br />
+                <br />
+                <input type="radio" id="add" name="operation" value="+"><label for="add">ADD</label><br />               
+                <input type="radio" id="multiply" name="operation" value="x"><label for="add">MULTIPLY</label><br />
+                <br />
+                <input type="button" id="submit" value="Calculate" />
+            </div>
+        </p>
 
         <p>This page is served by Quarkus. The source is in
             <code>src/main/resources/META-INF/resources/index.html</code>.</p>
-
-        <h2>What are your next steps?</h2>
-
-        <p>If not already done, run the application in <em>dev mode</em> using: <code>./mvnw compile quarkus:dev</code>.
-        </p>
-        <ul>
-            <li>Your static assets are located in <code>src/main/resources/META-INF/resources</code>.</li>
-            <li>Configure your application in <code>src/main/resources/application.properties</code>.</li>
-            <li>Quarkus now ships with a <a href="/q/dev/">Dev UI</a> (available in dev mode only)</li>
-            <li>Play with the getting started example code located in <code>src/main/java</code>:</li>
-        </ul>
-                <div class="example-code">
-            <h3>RESTEasy JAX-RS example</h3>
-            <p>REST is easy peasy with this Hello World RESTEasy resource.</p>
-            <p><code>@Path: <a href="/hello-resteasy" class="path-link" target="_blank">/hello-resteasy</a></code></p>
-            <p><a href="https://quarkus.io/guides/getting-started#the-jax-rs-resources" class="guide-link" target="_blank">Related guide section...</a></p>
-        </div>
 
     </div>
     <div class="right-column">
@@ -167,4 +164,27 @@
     </div>
 </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$(function(){
+
+    $("#submit").click(function(e) {
+        console.log("X: " + $("#x").val());
+        console.log("Y: " + $("#y").val());
+        console.log("Op: " + $('input[name="operation"]:checked').val());
+
+        var calc = {};
+        calc.x = $("#x").val();
+        calc.y = $("#y").val();
+        calc.op = $('input[name="operation"]:checked').val();
+
+        $.post( "/calculate", function( calc ) {
+            console.log("Post success: " + JSON.stringify(calc));
+        });
+    });
+
+});
+</script>
+
 </html>
