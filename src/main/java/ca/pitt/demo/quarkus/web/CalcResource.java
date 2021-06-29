@@ -5,6 +5,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -24,9 +25,10 @@ public class CalcResource {
     public String calc(Calculation calculation) {
 
         System.err.println("Sending request.");
-        Numbers numbers = new Numbers(Double.valueOf(calculation.getX()), Double.valueOf(calculation.getY()));
-        channelService.postCalculation(calculation.getOp(), numbers);
-        System.err.println("Request sent.");
+        String data = "{\"x\": " + calculation.getX() + ", \"y\": " + calculation.getX() + "}";
+        Response response = channelService.postCalculation(calculation.getOp(), data);
+        
+        System.err.println(response.toString());
         return "Done.";
     }
 

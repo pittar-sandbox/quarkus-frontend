@@ -5,6 +5,7 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
@@ -22,6 +23,6 @@ public interface ChannelService {
     @ClientHeaderParam(name="Ce-Specversion", value="1.0")
     @ClientHeaderParam(name="Ce-Service", value="math")
     @ClientHeaderParam(name="Ce-Source", value="frontend")
-    void postCalculation(@HeaderParam("Ce-Operation") String operation, Numbers numbers);
+    Response postCalculation(@HeaderParam("Ce-Operation") String operation, String numbers);
 
 }
