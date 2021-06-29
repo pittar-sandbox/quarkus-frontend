@@ -10,7 +10,6 @@ import javax.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import ca.pitt.demo.quarkus.dto.Calculation;
-import ca.pitt.demo.quarkus.dto.Numbers;
 import ca.pitt.demo.quarkus.restclient.ChannelService;
 
 @Path("/calculate")
