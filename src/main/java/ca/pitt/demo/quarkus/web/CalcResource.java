@@ -33,6 +33,7 @@ public class CalcResource {
             response = channelService.multiply(data);
         }        
         System.err.println("Status: " + response.getStatusInfo().toString());
+        System.err.println("Code: " + response.getStatus());
         return "Done.";
     }
 

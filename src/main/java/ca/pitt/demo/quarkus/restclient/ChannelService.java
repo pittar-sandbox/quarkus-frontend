@@ -10,8 +10,6 @@ import javax.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import ca.pitt.demo.quarkus.dto.Numbers;
-
 @Path("/")
 @Produces("application/json")
 @Consumes("application/json")
@@ -29,7 +27,7 @@ public interface ChannelService {
     @ClientHeaderParam(name="Ce-Id", value="math")
     @ClientHeaderParam(name="Ce-Specversion", value="1.0")
     @ClientHeaderParam(name="Ce-Service", value="math")
-    @ClientHeaderParam(name="Ce-Operation", value="x")
+    @ClientHeaderParam(name="Ce-Operation", value="multiply")
     @ClientHeaderParam(name="Ce-Source", value="frontend")
     Response multiply(String numbers);
 
@@ -37,7 +35,7 @@ public interface ChannelService {
     @ClientHeaderParam(name="Ce-Id", value="math")
     @ClientHeaderParam(name="Ce-Specversion", value="1.0")
     @ClientHeaderParam(name="Ce-Service", value="math")
-    @ClientHeaderParam(name="Ce-Operation", value="+")
+    @ClientHeaderParam(name="Ce-Operation", value="add")
     @ClientHeaderParam(name="Ce-Source", value="frontend")
     Response add(String numbers);
 
