@@ -23,20 +23,20 @@ public interface ChannelService {
     @ClientHeaderParam(name="Ce-Source", value="frontend")
     Response postCalculation(@HeaderParam("Ce-Operation") String operation, String numbers);
 
-    @POST
-    @ClientHeaderParam(name="Ce-Id", value="math")
-    @ClientHeaderParam(name="Ce-Specversion", value="1.0")
-    @ClientHeaderParam(name="Ce-Service", value="math")
-    @ClientHeaderParam(name="Ce-Operation", value="multiply")
-    @ClientHeaderParam(name="Ce-Source", value="frontend")
-    Response multiply(String numbers);
+    // @POST
+    // @ClientHeaderParam(name="Ce-Id", value="math")
+    // @ClientHeaderParam(name="Ce-Specversion", value="1.0")
+    // @ClientHeaderParam(name="Ce-Service", value="math")
+    // @ClientHeaderParam(name="Ce-Operation", value="multiply")
+    // @ClientHeaderParam(name="Ce-Source", value="frontend")
+    // Response multiply(String numbers);
 
-    @POST
-    @ClientHeaderParam(name="Ce-Id", value="math")
-    @ClientHeaderParam(name="Ce-Specversion", value="1.0")
-    @ClientHeaderParam(name="Ce-Service", value="math")
-    @ClientHeaderParam(name="Ce-Operation", value="add")
-    @ClientHeaderParam(name="Ce-Source", value="frontend")
-    Response add(String numbers);
+    // @POST
+    // @ClientHeaderParam(name="Ce-Id", value="math")
+    // @ClientHeaderParam(name="Ce-Specversion", value="1.0")
+    // @ClientHeaderParam(name="Ce-Service", value="math")
+    // @ClientHeaderParam(name="Ce-Operation", value="add")
+    // @ClientHeaderParam(name="Ce-Source", value="frontend")
+    // Response add(String numbers);
 
 }
