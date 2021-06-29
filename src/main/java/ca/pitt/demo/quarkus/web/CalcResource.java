@@ -25,9 +25,14 @@ public class CalcResource {
 
         System.err.println("Sending request.");
         String data = "{\"x\": " + calculation.getX() + ", \"y\": " + calculation.getX() + "}";
-        Response response = channelService.postCalculation(calculation.getOp(), data);
-        
-        System.err.println(response.toString());
+
+        Response response;
+        if ("+".equals(calculation.getOp())) {
+            response = channelService.add(data);
+        } else {
+            response = channelService.multiply(data);
+        }        
+        System.err.println("Status: " + response.getStatusInfo().toString());
         return "Done.";
     }
 
